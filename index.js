@@ -60,12 +60,55 @@ const attachPost = function (post) {
     document.querySelector(".review-card").innerHTML += post
 }
 
+
+function scrapeCountriesAndPost(data) {
+    for (const country of data) {
+        const name = country.name
+        const id = country.id
+        const post = `
+            <br>
+            <div class="country-card">
+                <h3> ${name}</h3>
+                <p>${name}'s id: ${id}</p>
+                <p>${name}'s reviews</p>
+            </div>
+            <br>
+        `
+        document.querySelector("#countries-list").innerHTML += post
+
+
+    }
+}
+
+
+function loadCountries() {
+    fetch("http://localhost:3000/countries")
+        .then(resp => resp.json())
+        .then(data => scrapeCountriesAndPost(data))
+
+}
+
 function loadFormListener() {
+
+    loadCountries()
 
     const postForm = document.getElementById("blog-form")
     postForm.addEventListener("submit", function (event) {
         event.preventDefault()
         const postResult = getInfo(event)
+
+        fetch("http://localhost:3000/reviews", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(postResult)
+        })
+            .then(resp => resp.json())
+            .then(console.log)
+
+
+
         const htmlPost = postHTML(postResult)
         attachPost(htmlPost)
         clearForm()
