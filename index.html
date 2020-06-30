@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css'>
+    <!-- <link rel="stylesheet" href="css/index.css"> -->
     <title>Document</title>
     <script src="index.js"></script>
 </head>
@@ -19,43 +20,58 @@
 
         <div class="col s12 m6 l6">
             <form id="blog-form" action="#">
-                <div>
-                    <label for="name">Country Name</label>
-                    <input type="text" name="name" id="name">
 
-                </div>
-
-                <div>
-                    <label for="city_visited">City Visited</label>
+                <div class="input-field">
                     <input type="text" name="city_visited" id="city_visited">
-
+                    <label for="city_visited">City visited</label>
                 </div>
 
-                <div>
-                    <label for="date_visited">Date Visited</label>
+                <div class="input-field">
                     <input type="text" name="date_visited" id="date_visited">
-
+                    <label for="date_visited">Date Visited</label>
                 </div>
 
-                <label for="review">Review</label>
-                <div>
-                    <textarea name="review" id="review" cols="70" rows="5"></textarea>
+                <div class="input-field">
+                    <textarea name="experience" id="experience" cols="70" rows="5"></textarea>
+                    <label for="experience">Experience</label>
                 </div>
 
-                <input type="submit" value="Create Review" class='btn btn-primary' }>
+
+                <input type="submit" value="Create Review" class='btn btn-primary'>
             </form>
         </div>
-        <br><br>
+    </div>
+    <br><br>
 
-        <div>
-            <h3> List of Reviews</h3>
-            <div class="review-content">
+    <div class="reviews-class">
+        <h3> List of Reviews</h3>
+
+        <div class="review-card">
+
+            <!-- <div class="card-content">
+                <span class="card-title">USA - Texas</span>
+                <p>Visited: Jan 2019</p>
+                <p>Loved BBQ..little humid tho!</p>
                 <button class="edit">Edit Review</button>
                 <button class="delete">Delete Review</button>
-
             </div>
+
+            <br><br>
+
+            <div class="card-content">
+                <span class="card-title">Japan - Tokyo</span>
+                <p>Visited: Feb 2018</p>
+                <p>Expensive, and too crowded.Clean and nice people</p>
+                <button class="edit">Edit Review</button>
+                <button class="delete">Delete Review</button>
+            </div>
+
+            <br><br> -->
+
+
         </div>
     </div>
+
 
 </body>
 
