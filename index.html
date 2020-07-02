@@ -5,82 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css'>
-    <!-- <link rel="stylesheet" href="css/index.css"> -->
+    <link rel="stylesheet" href="css/index.css">
     <title>Document</title>
-    <script src="index.js"></script>
+
 </head>
 
 <body>
+    <h1 class="centerClass">List of Countries</h1>
+    <div id="container">
+        <div id="form">
+            <h3>New Country</h3>
+            <form id="country-form">
+                <input type="text" name="name" placeholder="name" />
+                <br><br>
+                <input type="text" name="continent" placeholder="continent" />
+                <br><br>
+                <input type="text" name="img" placeholder="image url">
+                <br><br>
+                <input type="submit" value="Submit" class='btn btn-primary'>
 
-
-    <div style="width:800px; margin:0 auto;">
-        <div class="header green darken-3 white-text">
-            <h1 class="center">Welcome to Destination Review!</h1>
-        </div>
-
-        <div class="col s12 m6 l6">
-            <form id="blog-form" action="#">
-
-                <div class="input-field">
-                    <input type="text" name="city_visited" id="city_visited">
-                    <label for="city_visited">City visited</label>
-                </div>
-
-                <div class="input-field">
-                    <input type="text" name="date_visited" id="date_visited">
-                    <label for="date_visited">Date Visited</label>
-                </div>
-
-                <div class="input-field">
-                    <textarea name="experience" id="experience" cols="70" rows="5"></textarea>
-                    <label for="experience">Experience</label>
-                </div>
-
-
-                <input type="submit" value="Create Review" class='btn btn-primary'>
             </form>
         </div>
-    </div>
-    <br><br>
 
-    <div id="countries-list">
-        <h1>List of countries</h1>
-
-    </div>
-
-
-
-
-    <div class="reviews-class">
-        <h3> List of Reviews</h3>
-
-        <div class="review-card">
-
-            <!-- <div class="card-content">
-                <span class="card-title">USA - Texas</span>
-                <p>Visited: Jan 2019</p>
-                <p>Loved BBQ..little humid tho!</p>
-                <button class="edit">Edit Review</button>
-                <button class="delete">Delete Review</button>
-            </div>
-
-            <br><br>
-
-            <div class="card-content">
-                <span class="card-title">Japan - Tokyo</span>
-                <p>Visited: Feb 2018</p>
-                <p>Expensive, and too crowded.Clean and nice people</p>
-                <button class="edit">Edit Review</button>
-                <button class="delete">Delete Review</button>
-            </div>
-
-            <br><br> -->
-
+        <div id="country-container">
 
         </div>
     </div>
+
+
 
 
 </body>
+<script type="text/javascript" src="index.js"></script>
+<script type="text/javascript" src="js/models/country.js"></script>
 
 </html>
