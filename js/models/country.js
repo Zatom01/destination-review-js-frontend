@@ -14,7 +14,7 @@ class Country {
 
     countryHTML() {
         return `
-            <img src=${this.image}" width ="100" />
+            <img src=${this.image}" width ="100" /><br>
             <a href= "/countries/${this.id}><h2 class="header">${this.name}</h2></a>
             <p>${this.continent}</p>
             <button class="delete" data-id="${this.id}"> DELETE ? </button><br><br>
