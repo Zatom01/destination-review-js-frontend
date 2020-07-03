@@ -19,12 +19,13 @@ class API {
             "name": e.target.name.value,
             "continent": e.target.continent.value,
             "image": e.target.img.value,
-            "reviews_attributes": {
+            "reviews_attributes": [{
                 'city_visited': e.target.city.value,
                 'date_visited': e.target.date.value,
                 'experience': e.target.experience.value
 
-            }
+            }]
+
         }
 
         fetch("http://localhost:3000/countries", {
@@ -38,9 +39,7 @@ class API {
 
             .then(resp => resp.json())
             .then(country => {
-                const {
-                    id, name, continent, image
-                } = country
+                const { id, name, continent, image } = country
                 new Country(id, name, continent, image)
                 document.getElementById('country-form').reset()
 

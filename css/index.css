@@ -37,3 +37,8 @@ h1.centerClass {
     margin: 15px;
     text-align: center;
 }
+
+.inputBox{
+    width: 500px;
+    height:100px;
+}
