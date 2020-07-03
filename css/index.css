@@ -42,3 +42,8 @@ h1.centerClass {
     width: 500px;
     height:100px;
 }
+
+.like-value{
+    font-size: x-large;
+    color: purple;
+}

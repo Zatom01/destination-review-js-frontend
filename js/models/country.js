@@ -42,6 +42,25 @@ class Country {
 
     }
 
+    static deleteReview(e) {
+
+        const id = parseInt(e.target.dataset.id)
+        fetch(`http://localhost:3000/reviews/${id}`, {
+            method: 'DELETE'
+        })
+            .then(() => {
+                document.getElementById("country-container").removeChild(document.getElementById(id))
+            })
+    }
+
+    static updateReviewLikes(e) {
+        let likes = parseInt(e.target.parentElement.querySelector('.like-value').innerText)
+        let new_likes = likes + 1
+        e.target.parentElement.querySelector('.like-value').innerText = new_likes
+
+
+
+    }
 
 
     renderCountry() {
@@ -62,28 +81,23 @@ class Country {
     showCountry(e) {
         e.preventDefault()
         const countryContainer = document.getElementById('country-container')
-
         countryContainer.innerHTML = ""
-
         const reviewTitle = document.createElement("div")
-
         reviewTitle.classList.add("review-title-card")
-
         reviewTitle.innerHTML += this.reviewHTML()
-
         countryContainer.appendChild(reviewTitle)
-
-
         API.postReviews(this.id)
 
     }
 
 
-    static renderReview(id, city_visited, date_visited, experience) {
+    static renderReview(id, city_visited, date_visited, experience, likes) {
 
-        const countryContainer = document.getElementById('country-container')
+        const countryContainer = document.getElementById("country-container")
+        // countryContainer.id = "review-container"
         const reviewCard = document.createElement("div")
         reviewCard.classList.add("review-card")
+        reviewCard.id = id
 
         const newHTML = `
 
@@ -91,13 +105,20 @@ class Country {
             <p>CITY VISITED: ${city_visited}</p>
             <p>DATE VISITED: ${date_visited}</p>
             <p>EXPERIENCE: ${experience}</p>
-            <button class="update" data-id="${id}"> UPDATE ? </button><br><br>
+            <p class="like-value">${likes}</p>
+            <button class="likes" data-id="${id}"> LIKE ME ? </button><br><br>
             <button class="delete" data-id="${id}"> DELETE ? </button>
 
         `
 
         reviewCard.innerHTML += newHTML
         countryContainer.appendChild(reviewCard)
+
+        reviewCard.addEventListener("click", e => {
+
+            if (e.target.className.includes("delete")) { this.deleteReview(e) }
+            if (e.target.className.includes("likes")) { this.updateReviewLikes(e) }
+        })
 
 
 

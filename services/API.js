@@ -15,6 +15,7 @@ class API {
     static addCountry(e) {
 
         e.preventDefault()
+        debugger
         let data = {
             "name": e.target.name.value,
             "continent": e.target.continent.value,
@@ -26,6 +27,8 @@ class API {
 
             }]
 
+
+
         }
 
         fetch("http://localhost:3000/countries", {
@@ -35,7 +38,6 @@ class API {
             },
             body: JSON.stringify(data)
         })
-
 
             .then(resp => resp.json())
             .then(country => {
@@ -58,7 +60,9 @@ class API {
                     const city_visited = review.city_visited
                     const date_visited = review.date_visited
                     const experience = review.experience
-                    Country.renderReview(id, city_visited, date_visited, experience)
+                    const likes = review.likes
+
+                    Country.renderReview(id, city_visited, date_visited, experience, likes)
 
 
                 })
