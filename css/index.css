@@ -21,7 +21,17 @@ h1.centerClass {
 .country-card {
     float: left;
     width: 350px;
-    height: 150px;
+    height: 250px;
+    background-color: yellow ;
+    color: blue;
+    margin: 15px;
+    text-align: center;
+}
+
+.review-card {
+    float: left;
+    width: 350px;
+    height: 350px;
     background-color: yellow ;
     color: blue;
     margin: 15px;
