@@ -15,7 +15,6 @@ class API {
     static addCountry(e) {
 
         e.preventDefault()
-        debugger
         let data = {
             "name": e.target.name.value,
             "continent": e.target.continent.value,
@@ -67,6 +66,27 @@ class API {
 
                 })
             })
+    }
+
+    static createNewReview(country_id, city_visited, date_visited, experience) {
+        debugger
+
+        let data = {
+            "city_visited": city_visited,
+            "date_visited": date_visited,
+            "experience": experience,
+            "country_id": country_id
+        }
+
+        fetch("http://localhost:3000/reviews", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+
+            .then(resp => resp.json())
     }
 
 }
