@@ -4,7 +4,7 @@ This is the frontend. Backend is [here](https://github.com/Zatom01/destination-r
 Welcome to Destination-Review!
 
 This is a single page application that has Rails as an API (backend) and renders with Javascript (frontend).
-You can create a contry and a city review or go into a country's page do the following:
+You can create a country and add city's review or go into a country's page do the following:
     a. Add a review for a city
     b. Add likes on specific review
     c. Update a review
