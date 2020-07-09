@@ -2,17 +2,17 @@ class Country {
 
     static all = []
 
-    constructor(id, name, continent, image) {
+    constructor(id, name, continent, image, countryLikes = 0) {
 
         this.id = id
         this.name = name
         this.continent = continent
         this.image = image
+        this.countryLikes = countryLikes
         this.renderCountry()
 
     }
 
-    static id = this.id
 
 
     countryHTML() {
@@ -20,6 +20,8 @@ class Country {
             <img src="${this.image}" width ="100" /><br>
             <a href= "/countries/${this.id}"><h2 class="header">${this.name}</h2></a>
             <p>${this.continent}</p>
+            <h4 class="countryLikeValue">${this.countryLikes}</h4>
+            <button class="country-like">Like ? </button><br><br>
             <button class="delete" data-id="${this.id}"> DELETE ? </button><br><br>
         `
     }
@@ -53,6 +55,7 @@ class Country {
     }
 
     static updateReviewLikes(e) {
+
         let id = parseInt(e.target.dataset.id)
         let likes = parseInt(e.target.parentElement.querySelector('.like-value').innerText)
         let new_likes = likes + 1
@@ -74,6 +77,7 @@ class Country {
     }
 
     static updateReview(e) {
+        debugger
         const id = parseInt(e.target.dataset.id)
         const city_visited = e.target.parentElement.querySelector(".city").innerText
         const date_visited = e.target.parentElement.querySelector(".date").innerText
@@ -131,10 +135,23 @@ class Country {
         countryCard.addEventListener("click", e => {
             if (e.target.className.includes("delete")) { this.deleteCountry(e) }
             if (e.target.className.includes("header")) { this.showCountry(e, countryCard.id) }
+            if (e.target.className.includes("country-like")) { this.updateCountryLike(e) }
         })
     }
 
+
+    updateCountryLike(e) {
+
+        let initialLike = this.countryLikes
+        let htmlLike = parseInt(e.target.parentElement.querySelector('.countryLikeValue').innerText)
+        let new_likes = htmlLike + 1
+        e.target.parentElement.querySelector('.countryLikeValue').innerText = new_likes
+
+
+    }
+
     showCountry(e, countryId) {
+
         e.preventDefault()
         //updating upper portion input form for review only
         let country_id = parseInt(countryId)
@@ -152,6 +169,7 @@ class Country {
             </form>
 
             `
+
         form.addEventListener("submit", function (e) {
 
             let country_id = parseInt(e.target.parentElement.querySelector(".countryId").innerHTML)

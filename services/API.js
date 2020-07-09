@@ -69,7 +69,6 @@ class API {
     }
 
     static createNewReview(country_id, city_visited, date_visited, experience) {
-        debugger
 
         let data = {
             "city_visited": city_visited,
